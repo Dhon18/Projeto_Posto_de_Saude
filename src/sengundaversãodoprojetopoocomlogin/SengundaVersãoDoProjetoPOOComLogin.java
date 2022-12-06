@@ -20,6 +20,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
         while(constante){
        //ESTA PRIMEIRA PARTE FUNCIONA COMO LOGIN OU CADASTRAR USUARIO PARA QUE POSSA FAZER UM LOGIN
        //CASO O USUARIO NO LOGIN NÃO FOR IDENTIFICADO ELE NÃO ACESSARA O MENU PRINCIPAL
+        
         System.out.println("***********************************");
         System.out.println("***********************************");
         System.out.println("1 - Cadastrar Usuario: ");
