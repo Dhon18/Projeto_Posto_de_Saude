@@ -14,27 +14,35 @@ public class SengundaVersãoDoProjetoPOOComLogin {
 
         //VARIAVEL I ESTA SENDO USADA EM TODOS OS LAÇOS FOR PARA CONSULTA E PESQUISA
         int i, id=0;
+        int menu = 0;
         //FOI DECLARADA ESTA VARIAVEL E DADO A CONDIÇÃO DE ENQUANTO FOSSE VERDADEIRO ELA CONTINUARIA
         //RODANDO MESMO APÓS SER EXECUTADO
         boolean constante = true;   
         while(constante){
        //ESTA PRIMEIRA PARTE FUNCIONA COMO LOGIN OU CADASTRAR USUARIO PARA QUE POSSA FAZER UM LOGIN
        //CASO O USUARIO NO LOGIN NÃO FOR IDENTIFICADO ELE NÃO ACESSARA O MENU PRINCIPAL
-        
+        try{
+        //COMANDO PARA LIMPAR O BULFER DO TECLADO PARA NÃO BUGAR NO LAÇO
+        leia = new Scanner(System.in);
         System.out.println("***********************************");
         System.out.println("***********************************");
         System.out.println("1 - Cadastrar Usuario: ");
         System.out.println("2 - Logar: ");
         System.out.println("***********************************");
         System.out.println("***********************************");
-        String menu = leia.nextLine();
-        
+        menu = leia.nextInt();
+        }catch(InputMismatchException e){
+                    System.out.println("====ERRO DE ENTRADA====");
+                    System.out.println("DIGITE UM VALOR INTEIRO DAS POSIÇÕES ACIMA");
+                    menu = 7;
+        }
 
         System.out.println("\n \n \n");
         //ESSA PRIMEIRA PARTE DO CÓDIGO OPÇÃO UM FARÁ O CADASTRO DO FUNCIONARIO PARA QUE POSSA CONSEGUIR
         // FAZER O LOGIN
         switch(menu){
-            case "1":{
+            case 1:{
+                leia = new Scanner(System.in);
                 System.out.println("\n \n \n");
                 System.out.println("====CADASTRO DE FUNCIONARIO====");
                    
@@ -57,10 +65,11 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 break;
                 
             }
+             
             //ESSA É A OPÇÃO DOIS CASO FOR FAZER O LOGIN DO FUNCIONARIO CADASTRADO
             //SÓ CONSEGUIRA ACESSAR SE CASO FOR ACHADO NA LISTA DE CADASTRO DO FUNCIONARIO
-                case "2":{
-                
+                case 2:{
+                leia = new Scanner(System.in);
                 System.out.println("\n \n \n");
                 System.out.println("====LOGIN DE FUNCIONARIO==== \n");
                 
@@ -84,7 +93,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     if(senha2.equals(funcionario1.getSenha2()) && nome1.equals(funcionario1.getNome1())){
                         System.out.println("Acesso Permitido!!");
 
-                        
+                       
                         
                         
                         
