@@ -1,5 +1,5 @@
 package sengundaversãodoprojetopoocomlogin;
-public class LoginInicialCad extends Funcionarios{
+public class LoginInicialCad {
    
     private String nome1, senha2;
 

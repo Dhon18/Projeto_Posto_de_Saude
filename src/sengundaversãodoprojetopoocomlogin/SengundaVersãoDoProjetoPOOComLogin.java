@@ -44,7 +44,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
             case 1:{
                 leia = new Scanner(System.in);
                 System.out.println("\n \n \n");
-                System.out.println("====CADASTRO DE FUNCIONARIO====");
+                System.out.println("====CADASTRO DE USUARIO====");
                    
                 
                 System.out.println("***********************************");
@@ -71,7 +71,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 case 2:{
                 leia = new Scanner(System.in);
                 System.out.println("\n \n \n");
-                System.out.println("====LOGIN DE FUNCIONARIO==== \n");
+                System.out.println("====LOGIN DE USUARIO==== \n");
                 
                 
                 System.out.println("***********************************");
@@ -130,15 +130,18 @@ public class SengundaVersãoDoProjetoPOOComLogin {
         System.out.println("3 - Pesquisar Funcionario por CPF: ");
         System.out.println("4 - Atualizar Dados do Funcionario: ");
         System.out.println("5 - Remover Funcionario: ");
+        System.out.println("**************************************");
         System.out.println("6 - Cadastrar Pascientes: ");
         System.out.println("7 - Listar Todos os Pascientes");
         System.out.println("8 - Pesquisar Pascientes por CPF: ");
         System.out.println("9 - Atualizar Dados do Pascientes: ");
         System.out.println("10 - Remover Pascientes: ");
-        System.out.println("11 - Sair");
-
+        System.out.println("**************************************");
+        System.out.println("11 - Cadastrar Familia: ");
+        System.out.println("12 - Marcar consulta: ");
+        //Marcar data de retorno dentro da opção 12 só que na primeira marcação deixa o campo retorno 00/00/0000
+        System.out.println("13 - Sair");
         System.out.println("Digite o que Deseja ?: ");
-        
         String menu1 = leia.nextLine();
         System.out.println("\n \n \n");
         
@@ -148,23 +151,50 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 System.out.println("\n \n \n");
                 System.out.println("====CADASTRO DE FUNCIONARIO====");
                 
-                System.out.println("Email: ");
-                String email = leia.nextLine();
-                
-                System.out.println("Senha: ");
-                String senha = leia.nextLine();
-                
-                System.out.println("CPF: ");
-                String cpf = leia.nextLine();
                 
                 System.out.println("Nome completo: ");
                 String nome = leia.nextLine();
                 
+                System.out.println("Email: ");
+                String email = leia.nextLine();
+                
+                System.out.println("Sexo: ");
+                String sexo = leia.nextLine();
+                
+                System.out.println("Idade: ");
+                String idade = leia.nextLine();
+                
+                System.out.println("CPF: ");
+                String cpf = leia.nextLine();
+                
+                System.out.println("Telefone: ");
+                String telefone = leia.nextLine();
+                
+                System.out.println("*******************");
+                System.out.println("DADOS PROFICIONAIS");
+                System.out.println("*******************");
+                
+                System.out.println("Função: ");
+                String funcao  = leia.nextLine();
+                System.out.println("Carga Horária: ");
+                String carga_horaria = leia.nextLine();
+                System.out.println("Registro Profissional: ");
+                String registro_profissional = leia.nextLine();
+                System.out.println("Especialização: ");
+                String especializacao = leia.nextLine();
+                
+                
                 Funcionarios funcionario2 = new Funcionarios();
+                funcionario2.setSexo(sexo);
+                funcionario2.setIdade(idade);
                 funcionario2.setNome(nome);
                 funcionario2.setEmail(email);
-                funcionario2.setSenha(senha);
                 funcionario2.setCpf(cpf);
+                funcionario2.setTelefone(telefone);
+                funcionario2.setFuncao(funcao);
+                funcionario2.setCarga_horaria(carga_horaria);
+                funcionario2.setRegistro_profissional(registro_profissional);
+                funcionario2.setEspecializacao(especializacao);
                 usuario.add(funcionario2);
                 System.out.println("\n \n \n");
                 break;
@@ -179,7 +209,9 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     System.out.println("Funcionario"+"["+i+"]"+"O Email do Funcionario " + i + " é:" + usuario.get(i).getEmail());
                     System.out.println("O CPF do Funcionario " + i + " é:" + usuario.get(i).getCpf());
                     System.out.println("O nome do Funcionario " + i + " é:" + usuario.get (i).getNome());
-                    System.out.println("A Senha do Funcionario " + i + " é:" + usuario.get(i).getSenha());
+                    System.out.println("O sexo do Funcionario " + i + " é:" + usuario.get(i).getSexo());
+                    System.out.println("A idade do Funcionario é " + i + " é:" + usuario.get(i).getIdade());
+                    System.out.println("O telefone do funcionario é " + i + " é:" + usuario.get(i).getTelefone());
                     System.out.println("******************************************************");
                     System.out.println("\n \n \n");
                 }
@@ -197,8 +229,12 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                         System.out.println("******************************************************");
                         System.out.println("====FUNCIONARIO ENCONTRADO NO SISTEMA====");
                         System.out.println("Email: "+pegarinformacao.getEmail());
-                        System.out.println("Senha: "+pegarinformacao.getSenha());
+                        System.out.println("Idade: "+pegarinformacao.getIdade());
                         System.out.println("Nome: " +pegarinformacao.getNome());
+                        System.out.println("Sexo: " +pegarinformacao.getSexo());
+                        System.out.println("CPF: " +pegarinformacao.getCpf());
+                        System.out.println("Telefone: " +pegarinformacao.getTelefone());
+                        System.out.println("");
                         System.out.println("******************************************************");
                         System.out.println("\n \n \n");
                         break;
@@ -230,27 +266,37 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 }catch(InputMismatchException e){
                     System.out.println("====ERRO DE ENTRADA====");
                     System.out.println("DIGITE UM VALOR INTEIRO DAS POSIÇÕES ACIMA");
-                }catch(ArrayIndexOutOfBoundsException e){ //Informa que estourou o limite do vetor
-                    
-                    
-                    
+                }catch(ArrayIndexOutOfBoundsException e){ //Informa que estourou o limite do vetor   
                 System.out.println("====VOCÊ ESTOUROU O LIMITE MAXIMO DO VETOR====");
                 leia = new Scanner(System.in);
                 int b=1;
                 }
+                
                 System.out.print("Digite um novo email de alteração: ");
                 String atualizacaoemail = leia.nextLine();
                 
-                System.out.print("Digite uma nova senha de alteração: ");
-                String atualizacaosenha = leia.nextLine();
+                System.out.print("Digite um novo sexo de alteração: ");
+                String atualizacaosexo = leia.nextLine();
                 
-                System.out.println("Digite un bovo nome de alteração: ");
+                System.out.println("Digite um novo nome de alteração: ");
                 String atualizacaonome = leia.nextLine();
+                
+                System.out.println("Digite uma nova idade de alteração: ");
+                String atualizacaoidade = leia.nextLine();
+                
+                System.out.println("Digite um novo CPF para alteração: ");
+                String atualizacaocpf = leia.nextLine();
+                
+                System.out.println("Digite um novo Telefone para alteração: ");
+                String atualizacaotelefone = leia.nextLine();
                 
                 Funcionarios funcionario = usuario.get(id);
                 funcionario.setEmail(atualizacaoemail);
-                funcionario.setSenha(atualizacaosenha);
+                funcionario.setSexo(atualizacaosexo);
                 funcionario.setNome(atualizacaonome);
+                funcionario.setIdade(atualizacaoidade);
+                funcionario.setCpf(atualizacaocpf);
+                funcionario.setTelefone(atualizacaotelefone);
                 System.out.println("\n \n \n");
                 System.out.println("******************************************************");
                 System.out.println("******************************************************");
@@ -277,6 +323,15 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 leia.nextLine();
                 break;
                 }
+            
+            
+            
+            
+//**********************************************************************************************************************
+            
+            
+            
+            
             case "6":{
                 System.out.println("\n \n \n");
                 System.out.println("====CADASTRO DE PASCIENTE====");
@@ -284,20 +339,34 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 System.out.println("Email: ");
                 String email = leia.nextLine();
                 
-                System.out.println("Senha: ");
-                String senha = leia.nextLine();
-                
                 System.out.println("CPF: ");
                 String cpf = leia.nextLine();
                 
                 System.out.println("Nome completo: ");
                 String nome = leia.nextLine();
                 
+                System.out.println("Data de Nasciemnto: ");
+                String data_Nascimento = leia.nextLine();
+                
+                System.out.println("Nome Pai: ");
+                String nome_pai = leia.nextLine();
+                
+                System.out.println("Nome da Mãe: ");
+                String nome_mae = leia.nextLine();
+                System.out.println("N° SUS: ");
+                String numero_sus = leia.nextLine();
+                System.out.println("Nome do Responsavel pela Familia: ");
+                String responsavel_familia = leia.nextLine();
+                
                 Pasciente pasciente = new Pasciente();
                 pasciente.setNome(nome);
                 pasciente.setEmail(email);
-                pasciente.setSenha(senha);
-                pasciente.setCpf(cpf);
+                pasciente.setCpf(cpf);              
+                pasciente.setData_Nascimento(data_Nascimento);
+                pasciente.setNome_pai(nome_pai);
+                pasciente.setNome_mae(nome_mae);
+                pasciente.setNumero_sus(numero_sus);
+                pasciente.setResponsavel_familia(responsavel_familia);
                 usuariopasciente.add(pasciente);
                 System.out.println("\n \n \n");
                 break;
@@ -309,10 +378,14 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     //Funcionarios pegarinformacao = usuario.get(i);
                     System.out.println("\n \n \n");
                     System.out.println("******************************************************");
-                    System.out.println("Funcionario"+"["+i+"]"+"O Email do Funcionario " + i + " é:" + usuariopasciente.get(i).getEmail());
-                    System.out.println("O CPF do Funcionario " + i + " é:" + usuariopasciente.get(i).getCpf());
-                    System.out.println("O nome do Funcionario " + i + " é:" + usuariopasciente.get (i).getNome());
-                    System.out.println("A Senha do Funcionario " + i + " é:" + usuariopasciente.get(i).getSenha());
+                System.out.println("Funcionario"+"["+i+"]"+"O Email do Funcionario " + i + " é:" + usuariopasciente.get(i).getEmail());
+                System.out.println("O CPF do Pasciente " + i + " é:" + usuariopasciente.get(i).getCpf());
+                System.out.println("O nome do Pasciente " + i + " é:" + usuariopasciente.get (i).getNome());
+                System.out.println("Data de Nascimento " + i + " é:" + usuariopasciente.get(i).getData_Nascimento());
+                System.out.println("Nome do Pai " + i + " é:" + usuariopasciente.get(i).getNome_pai());
+                System.out.println("Nome da Mãe " + i + " é:" + usuariopasciente.get(i).getNome_mae());
+                System.out.println("N° SUS " + i + " é:" + usuariopasciente.get(i).getNumero_sus());
+                System.out.println("Responsável pela familia " + i + " é:" + usuariopasciente.get(i).getResponsavel_familia());
                     System.out.println("******************************************************");
                     System.out.println("\n \n \n");
                 }
@@ -328,10 +401,15 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     if(cpf.equals(pegarinformacaopasciente.getCpf())){
                         System.out.println("\n \n \n");
                         System.out.println("******************************************************");
-                        System.out.println("====PASCIENTES ENCONTRADO NO SISTEMA====");
+                        System.out.println("====PASCIENTE ENCONTRADO NO SISTEMA====");
                         System.out.println("Email: "+pegarinformacaopasciente.getEmail());
-                        System.out.println("Senha: "+pegarinformacaopasciente.getSenha());
+                        System.out.println("CPF: "+pegarinformacaopasciente.getCpf());
                         System.out.println("Nome: " +pegarinformacaopasciente.getNome());
+                        System.out.println("Data de Nascimento: " +pegarinformacaopasciente.getData_Nascimento());
+                        System.out.println("Nome da Mãe: " +pegarinformacaopasciente.getNome_mae());
+                        System.out.println("Nome do Pai: " +pegarinformacaopasciente.getNome_pai());
+                        System.out.println("N° SUS: " +pegarinformacaopasciente.getNumero_sus());
+                        System.out.println("Nome: " +pegarinformacaopasciente.getResponsavel_familia());
                         System.out.println("******************************************************");
                         System.out.println("\n \n \n");
                         break;
@@ -364,16 +442,43 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 System.out.print("Digite um novo email de alteração: ");
                 String atualizacaoemailpasciente = leia.nextLine();
                 
-                System.out.print("Digite uma nova senha de alteração: ");
-                String atualizacaosenhapasciente = leia.nextLine();
+                System.out.print("Digite uma nova cpf de alteração: ");
+                String atualizacaocpfpasciente = leia.nextLine();
                 
                 System.out.println("Digite un novo nome de alteração: ");
                 String atualizacaonomepasciente = leia.nextLine();
                 
+                System.out.println("n° sus: ");
+                String atualizacaonumerosuspasciente = leia.nextLine();
+                
+                System.out.println("Nome da Mãe: ");
+                String atualizacaonomemaepasciente = leia.nextLine();
+                
+                System.out.println("Nome do Pai: ");
+                String atualizacaonomepaipasciente = leia.nextLine();
+                
+                System.out.println("Telefone: ");
+                String atualizacaotelefonepasciente = leia.nextLine();
+                
+                System.out.println("Data de Nascimento: ");
+                String atualizacaodatadenascimentopasciente = leia.nextLine();
+                
+                System.out.println("Responsável pela Familia: ");
+                String atualizacaoresponsavelfamiliapasciente = leia.nextLine();
+                
+                //Esta nome pegarinformacaopasciente2 é um metodo que está ligada a classe Pasciente
                 Pasciente pegarinformacaopasciente2 = usuariopasciente.get(id);
                 pegarinformacaopasciente2.setEmail(atualizacaoemailpasciente);
-                pegarinformacaopasciente2.setSenha(atualizacaosenhapasciente);
+                pegarinformacaopasciente2.setCpf(atualizacaocpfpasciente);
                 pegarinformacaopasciente2.setNome(atualizacaonomepasciente);
+                pegarinformacaopasciente2.setNumero_sus(atualizacaonumerosuspasciente);
+                pegarinformacaopasciente2.setNome_mae(atualizacaonomemaepasciente);
+                pegarinformacaopasciente2.setNome_pai(atualizacaonomepaipasciente);
+                pegarinformacaopasciente2.setTelefone(atualizacaotelefonepasciente);
+                pegarinformacaopasciente2.setData_Nascimento(atualizacaodatadenascimentopasciente);
+                pegarinformacaopasciente2.setResponsavel_familia(atualizacaoresponsavelfamiliapasciente);
+                
+                
                 System.out.println("\n \n \n");
                 System.out.println("******************************************************");
                 System.out.println("******************************************************");
