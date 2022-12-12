@@ -1,8 +1,11 @@
 package sengundaversãodoprojetopoocomlogin;
 //IMPORTAÇÃO PARA USO DOS ARRAY LIST
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.*;
+import static sengundaversãodoprojetopoocomlogin.Cad_fam.adicinar;
 public class SengundaVersãoDoProjetoPOOComLogin {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
@@ -11,6 +14,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
     //ARRAY LIST PARA CLASS PASCIENTE
     ArrayList<Pasciente> usuariopasciente = new ArrayList();
     ClassUsuariosCadastrados cadastradosuser = new ClassUsuariosCadastrados();
+    Familia nova_fam = null;
 
         //VARIAVEL I ESTA SENDO USADA EM TODOS OS LAÇOS FOR PARA CONSULTA E PESQUISA
         int i, id=0;
@@ -318,18 +322,15 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 usuario.remove(id);
                 break;
             }
-            case "11":{
+            /*case "11":{
                 repitamenu = false;
                 leia.nextLine();
                 break;
                 }
-            
-            
+            */
             
             
 //**********************************************************************************************************************
-            
-            
             
             
             case "6":{
@@ -353,8 +354,10 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 
                 System.out.println("Nome da Mãe: ");
                 String nome_mae = leia.nextLine();
+                
                 System.out.println("N° SUS: ");
                 String numero_sus = leia.nextLine();
+                
                 System.out.println("Nome do Responsavel pela Familia: ");
                 String responsavel_familia = leia.nextLine();
                 
@@ -502,6 +505,73 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 usuariopasciente.remove(id);
                 break;
                                         }
+            
+            case "11":{
+                //leia = new Scanner(System.in);
+                System.out.println("\n \n \n");
+                System.out.println("====CADASTRAR FAMÍLIA====");
+                System.out.println("---------------------------");
+                System.out.println("Data do cadastro");
+                
+                Calendar c = Calendar.getInstance();
+                System.out.print(c.get(Calendar.DAY_OF_MONTH)+"/");
+                System.out.print(c.get(Calendar.MONTH)+"/");
+                System.out.print(c.get(Calendar.YEAR)+"/");
+                System.out.println("\n \n \n");
+                System.out.println("Responsável pelo cadastro :");
+                String prof_resp = leia.nextLine();
+                System.out.println("Responsável pela familia:");
+                String nome_Resp_Fam = leia.nextLine();
+                // String nome_Resp_Fam;//ver como ligar ao cadstro de de pacientes
+                System.out.println("Logradouro :");  
+                String logradouro = leia.nextLine();
+                System.out.println("bairro");
+                String bairro = leia.nextLine();
+                System.out.println("Numero");
+                String numero= leia.nextLine();
+                System.out.println("Municipio");
+                String município= leia.nextLine();
+                System.out.println("CEP");
+                String cep = leia.nextLine();
+                System.out.println("Telefone");
+                String telefone= leia.nextLine();
+                System.out.println("Quantas pessoas habitam na residência?");
+                int quant_membros = leia.nextInt();
+                System.out.println("Qual a renda da família ?");
+                float renda_fam = leia.nextFloat();
+                System.out.println("Sua casa é próprio ,alugado, cedido?");
+                String cond_moradia = leia.nextLine();
+                //substituir pelo enum (próprio ,alugado, cedido)
+                System.out.println("Locação urbana ou rural?");
+                String locacao = leia.nextLine();
+                System.out.println("O abastecimento de agua é poço, cisterna, Rio ou encanada?");
+                String abastec_agua = leia.nextLine();
+                System.out.println("A àgua para consumo é filtrado, fervido, ou sem tratamento ?");
+                String agua_p_cons = leia.nextLine();
+                System.out.println("Exístem animais na residencia? sim/nao");
+                String pets = leia.nextLine();
+                //if(("s".equals(pets))||("S".equals(pets))){
+                    System.out.println("Quantos pets?");
+                    int quant_pets = leia.nextInt();
+                    System.out.println("qual/quais o tipo/os de pet/s ?1 felino, 2 cão, 3 ave, 4 outro");
+                    int tipo_do_pets = leia.nextInt();
+                   
+                nova_fam = new Familia ();
+                Cad_fam.adicinar(nova_fam);
+                System.out.println(nova_fam);
+    
+            }
+
+            case "12":{
+                System.out.println("=====MARCAR CONSULTA=====");
+                
+            }
+                    
+            case "13":{
+                repitamenu = false;
+                leia.nextLine();
+                break;
+                }
                                     }
                                 }
                             }                                            
