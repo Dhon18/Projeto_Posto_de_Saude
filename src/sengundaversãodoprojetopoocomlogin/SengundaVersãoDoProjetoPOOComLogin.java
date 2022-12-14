@@ -9,15 +9,17 @@ import static sengundaversãodoprojetopoocomlogin.Cad_fam.adicinar;
 public class SengundaVersãoDoProjetoPOOComLogin {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
+    ArrayList<Marcar_consulta> MC = new ArrayList();    
     //ARRAY LIST PARA CLASS FUNCIONARIO
     ArrayList<Funcionarios> usuario = new ArrayList();
     //ARRAY LIST PARA CLASS PASCIENTE
     ArrayList<Pasciente> usuariopasciente = new ArrayList();
+    
     ClassUsuariosCadastrados cadastradosuser = new ClassUsuariosCadastrados();
     Familia nova_fam = null;
 
         //VARIAVEL I ESTA SENDO USADA EM TODOS OS LAÇOS FOR PARA CONSULTA E PESQUISA
-        int i, id=0;
+        int i, id=0, mar=0;
         int menu = 0;
         //FOI DECLARADA ESTA VARIAVEL E DADO A CONDIÇÃO DE ENQUANTO FOSSE VERDADEIRO ELA CONTINUARIA
         //RODANDO MESMO APÓS SER EXECUTADO
@@ -144,7 +146,8 @@ public class SengundaVersãoDoProjetoPOOComLogin {
         System.out.println("11 - Cadastrar Familia: ");
         System.out.println("12 - Marcar consulta: ");
         //Marcar data de retorno dentro da opção 12 só que na primeira marcação deixa o campo retorno 00/00/0000
-        System.out.println("13 - Sair");
+        System.out.println("13 - Marcar Retorno");
+        System.out.println("14 - Sair");
         System.out.println("Digite o que Deseja ?: ");
         String menu1 = leia.nextLine();
         System.out.println("\n \n \n");
@@ -376,7 +379,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
             }
             case "7":{
                 System.out.println("\n \n \n");
-                System.out.println("====LISTA DE PASCIENTES CADASTRADOS NO SUS====");
+                System.out.println("====LISTA DE PACIENTES CADASTRADOS NO SUS====");
                 for( i = 0 ; i < usuariopasciente.size(); i++){
                     //Funcionarios pegarinformacao = usuario.get(i);
                     System.out.println("\n \n \n");
@@ -428,7 +431,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
             }
             case "9":{
                 System.out.println("\n \n \n");
-                System.out.println("===ATUALIZAR DADOS DO PASCIENTES====");
+                System.out.println("===ATUALIZAR DADOS DO PACIENTES====");
                 System.out.println("\n \n \n");
                 
                 for( i = 0 ; i < usuariopasciente.size() ; i++){
@@ -555,19 +558,77 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     int quant_pets = leia.nextInt();
                     System.out.println("qual/quais o tipo/os de pet/s ?1 felino, 2 cão, 3 ave, 4 outro");
                     int tipo_do_pets = leia.nextInt();
-                   
+                //CHAMADA DO MÉTODO CADASTRA FAMÍLIA 
                 nova_fam = new Familia ();
                 Cad_fam.adicinar(nova_fam);
                 System.out.println(nova_fam);
     
             }
-
+//*************************************************************************************************
             case "12":{
+                Marcar_consulta marcar = new Marcar_consulta();
                 System.out.println("=====MARCAR CONSULTA=====");
+                System.out.println("\n");
                 
+                System.out.println("Nome do Paciente: ");
+                String nome_pasciente = leia.nextLine();
+                
+                System.out.println("Data da Consulta: ");
+                String data_de_consulta = leia.nextLine();
+                
+                System.out.println("Especialista: ");
+                String especialista = leia.nextLine();
+                
+                System.out.println("Data de Retorno: ");
+                String data_retornar = leia.nextLine();
+                
+                marcar.setNome_pac(nome_pasciente);
+                marcar.setData_consulta(data_de_consulta);
+                marcar.setProfissional(especialista);
+                marcar.setData_retorno(data_retornar);
+                MC.add(marcar);
+                break;
             }
-                    
             case "13":{
+                System.out.println("=====MARCAR DATA DE RETORNO=====");
+                System.out.println("\n \n \n");
+                //Marcar_consulta marcar = new Marcar_consulta();
+                for( i = 0 ; i < MC.size() ; i++){
+                    Marcar_consulta pegainformarc = MC.get(i);
+                    System.out.println("["+i+"]" + pegainformarc.getNome_pac());
+                }
+                try{
+                System.out.println("\n \n \n");
+                System.out.println("QUAL O PACIENTE VOCÊ DESEJA AGENDAR RETORNO?");
+                mar = leia.nextInt();
+                leia.nextLine();
+                System.out.println("\n \n \n");
+                
+                }catch(InputMismatchException e){
+                    System.out.println("====ERRO DE ENTRADA====");
+                    System.out.println("DIGITE UM VALOR INTEIRO DAS POSIÇÕES ACIMA");
+                }catch(ArrayIndexOutOfBoundsException e){ //Informa que estourou o limite do vetor   
+                System.out.println("====VOCÊ ESTOUROU O LIMITE MAXIMO DO VETOR====");
+                leia = new Scanner(System.in);
+                int b=1;
+                }
+                 
+                System.out.println("Digite a data de Retorno: ");
+                String atualizacaonome = leia.nextLine();
+                
+                Marcar_consulta marcar = MC.get(mar);
+                marcar.setData_retorno(atualizacaonome);
+                System.out.println("\n \n \n");
+                System.out.println("******************************************************");
+                System.out.println("******************************************************");
+                System.out.println("====PACIENTE AGENDADO====");
+                System.out.println("******************************************************");
+                System.out.println("******************************************************");
+                System.out.println("\n \n \n");
+                break;
+              
+            }        
+            case "14":{
                 repitamenu = false;
                 leia.nextLine();
                 break;

@@ -55,5 +55,11 @@ public class Cad_fam {
         }
                 return true;
     }
+
+    @Override
+    public String toString() {
+        return "Cad_fam{" +  '}';
+    }
+    
     
 }
