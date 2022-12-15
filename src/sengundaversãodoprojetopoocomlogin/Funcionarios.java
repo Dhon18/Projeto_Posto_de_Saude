@@ -4,6 +4,7 @@ public class Funcionarios  extends Pessoa implements Interface {
    private String funcao;
    private String carga_horaria;
    private String registro_profissional;
+   T_funcionario t_funcionario;
    private String especializacao;
    private double val_hora;
 
@@ -52,6 +53,14 @@ public class Funcionarios  extends Pessoa implements Interface {
     public void setEspecializacao(String especializacao) {
         this.especializacao = especializacao;
     }
+    
+    public void setTFuncionario(T_funcionario t_funcionario){
+        this.t_funcionario = t_funcionario;
+    }
+    
+    public T_funcionario getT_Funcionario(){
+        return t_funcionario;
+    }
 
     public double getVal_hora() {
         return val_hora;
@@ -71,8 +80,10 @@ public class Funcionarios  extends Pessoa implements Interface {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Funcionarios{" + "funcao=" + funcao + ", carga_horaria=" + carga_horaria + ", registro_profissional=" + registro_profissional + ", especializacao=" + especializacao + ", val_hora=" + val_hora + '}';
     }
+
+    
    
    
 

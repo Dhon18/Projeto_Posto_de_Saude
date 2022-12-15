@@ -23,8 +23,10 @@ public class SengundaVersãoDoProjetoPOOComLogin {
         int menu = 0;
         //FOI DECLARADA ESTA VARIAVEL E DADO A CONDIÇÃO DE ENQUANTO FOSSE VERDADEIRO ELA CONTINUARIA
         //RODANDO MESMO APÓS SER EXECUTADO
+        
         boolean constante = true;   
         while(constante){
+            
        //ESTA PRIMEIRA PARTE FUNCIONA COMO LOGIN OU CADASTRAR USUARIO PARA QUE POSSA FAZER UM LOGIN
        //CASO O USUARIO NO LOGIN NÃO FOR IDENTIFICADO ELE NÃO ACESSARA O MENU PRINCIPAL
         try{
@@ -98,33 +100,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     
                     if(senha2.equals(funcionario1.getSenha2()) && nome1.equals(funcionario1.getNome1())){
                         System.out.println("Acesso Permitido!!");
-
-                       
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                      
    //FOI DECLARADA ESTA VARIAVEL E DADO A CONDIÇÃO DE ENQUANTO FOSSE VERDADEIRO ELA CONTINUARIA
    //RODANDO MESMO APÓS SER EXECUTADO                     
    boolean repitamenu = true;   
@@ -138,10 +114,10 @@ public class SengundaVersãoDoProjetoPOOComLogin {
         System.out.println("5 - Remover Funcionario: ");
         System.out.println("**************************************");
         System.out.println("6 - Cadastrar Pascientes: ");
-        System.out.println("7 - Listar Todos os Pascientes");
-        System.out.println("8 - Pesquisar Pascientes por CPF: ");
-        System.out.println("9 - Atualizar Dados do Pascientes: ");
-        System.out.println("10 - Remover Pascientes: ");
+        System.out.println("7 - Listar Todos os Pacientes");
+        System.out.println("8 - Pesquisar Pacientes por CPF: ");
+        System.out.println("9 - Atualizar Dados do Pacientes: ");
+        System.out.println("10 - Remover Pacientes: ");
         System.out.println("**************************************");
         System.out.println("11 - Cadastrar Familia: ");
         System.out.println("12 - Marcar consulta: ");
@@ -181,14 +157,24 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 System.out.println("DADOS PROFICIONAIS");
                 System.out.println("*******************");
                 
-                System.out.println("Função: ");
-                String funcao  = leia.nextLine();
+               
+               
+                
+                System.out.println("Funcao 1(Clinico) 2 (DENTISTA): ");
+                int funcao = leia.nextInt();
+                T_funcionario t_funcionario = T_funcionario.values()[funcao-1];
+                
+                
+                
                 System.out.println("Carga Horária: ");
                 String carga_horaria = leia.nextLine();
                 System.out.println("Registro Profissional: ");
                 String registro_profissional = leia.nextLine();
                 System.out.println("Especialização: ");
                 String especializacao = leia.nextLine();
+               
+                //T_funcionario t_funcionario = T_funcionario.DENTISTA;
+
                 
                 
                 Funcionarios funcionario2 = new Funcionarios();
@@ -198,10 +184,13 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                 funcionario2.setEmail(email);
                 funcionario2.setCpf(cpf);
                 funcionario2.setTelefone(telefone);
-                funcionario2.setFuncao(funcao);
+                //funcionario2.setFuncao(funcao);
+                funcionario2.setTFuncionario(t_funcionario);
+
                 funcionario2.setCarga_horaria(carga_horaria);
                 funcionario2.setRegistro_profissional(registro_profissional);
                 funcionario2.setEspecializacao(especializacao);
+                funcionario2.setTFuncionario(t_funcionario);
                 usuario.add(funcionario2);
                 System.out.println("\n \n \n");
                 break;
@@ -219,6 +208,7 @@ public class SengundaVersãoDoProjetoPOOComLogin {
                     System.out.println("O sexo do Funcionario " + i + " é:" + usuario.get(i).getSexo());
                     System.out.println("A idade do Funcionario é " + i + " é:" + usuario.get(i).getIdade());
                     System.out.println("O telefone do funcionario é " + i + " é:" + usuario.get(i).getTelefone());
+                    System.out.println("A Função do funcionario é " + i + " é:" + usuario.get(i).getT_Funcionario().name());
                     System.out.println("******************************************************");
                     System.out.println("\n \n \n");
                 }
