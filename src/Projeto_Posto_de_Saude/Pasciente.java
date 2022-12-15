@@ -1,4 +1,4 @@
-package sengundaversãodoprojetopoocomlogin;
+package Projeto_Posto_de_Saude;
 public class Pasciente  extends Pessoa{
     
     private String data_Nascimento, nome_pai, nome_mae,numero_sus, responsavel_familia;

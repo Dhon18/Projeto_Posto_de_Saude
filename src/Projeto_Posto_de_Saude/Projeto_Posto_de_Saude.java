@@ -1,12 +1,12 @@
-package sengundaversãodoprojetopoocomlogin;
+package Projeto_Posto_de_Saude;
 //IMPORTAÇÃO PARA USO DOS ARRAY LIST
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.*;
-import static sengundaversãodoprojetopoocomlogin.Cad_fam.adicinar;
-public class SengundaVersãoDoProjetoPOOComLogin {
+import static Projeto_Posto_de_Saude.Cad_fam.adicinar;
+public class Projeto_Posto_de_Saude {
     public static void main(String[] args) {
         Scanner leia = new Scanner(System.in);
     ArrayList<Marcar_consulta> MC = new ArrayList();    

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sengundaversãodoprojetopoocomlogin;
+package Projeto_Posto_de_Saude;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package sengundaversãodoprojetopoocomlogin;
+package Projeto_Posto_de_Saude;
 public class Marcar_consulta {
     private String data_consulta, data_retorno,profissional, nome_pac;
 

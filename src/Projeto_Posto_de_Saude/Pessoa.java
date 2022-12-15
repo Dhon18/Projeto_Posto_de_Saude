@@ -1,4 +1,4 @@
-package sengundaversãodoprojetopoocomlogin;
+package Projeto_Posto_de_Saude;
 public abstract class Pessoa {
  
     
